@@ -44,3 +44,39 @@ Version 0.0.1
 		- 删除数据库记录
 			customer.remove(id);       //根据指定的 id 来删除记录
 */
+
+
+/* 以下为一些示例代码 */
+// var columns = ['name','phone','active'];
+// var table_name = 'customers';
+// var database_name = 'example_db';
+// var customer = new JW_Model();
+// customer.init(columns,table_name,database_name);
+// customer.set('name','Justin Wang');
+// customer.set('phone','13299990098');
+// customer.set('active',1);
+//customer.insert({name:"Justin",phone:"18510209803",active:"1",id:"11"});
+// customer.insert();
+
+//返回的结果集的处理示例
+// customer.retrieve(11,function(resultSet){
+// 	var len = resultSet.rows.length;
+// 	if (len>0) {
+// 		var tempRow = resultSet.rows.item(0);
+// 		console.log(tempRow);
+// 	}
+// });
+
+// customer.retrieve_by('phone','13299990098',function(resultSet){
+// 	var len = resultSet.rows.length;
+// 	console.log(len);
+// 	console.log(typeof(len));
+// 	if (len>0) {
+// 		var tempRow = resultSet.rows.item(0);
+// 		console.log(tempRow);
+// 	}
+// });
+
+// customer.set('name','Justin Wang');
+// customer.set('phone','13299990099');
+// customer.set('active',1);
