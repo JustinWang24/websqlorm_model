@@ -54,6 +54,7 @@
 
 For Examples:
  Init your model object:
+	 
 	 var columns = ['name','phone','active'];
 	 var table_name = 'customers';
 	 var database_name = 'example_db';
@@ -61,6 +62,7 @@ For Examples:
 	 customer.init(columns,table_name,database_name);
 
  Insert: 
+	 
 	 customer.set('name','Justin Wang');
 	 customer.set('phone','13299990098');
 	 customer.set('active',1);
@@ -69,6 +71,7 @@ For Examples:
 	 customer.insert();
 
  Handle results set:
+	 
 	 customer.retrieve(11,function(resultSet){
 	 	var len = resultSet.rows.length;
 	 	if (len>0) {
@@ -86,6 +89,7 @@ For Examples:
 	 });
 
  Setter and Getter
+	 
 	 customer.set('name','Justin Wang');
 	 customer.set('phone','13299990099');
 	 customer.set('active',1);
