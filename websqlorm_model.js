@@ -102,7 +102,7 @@ function JW_Model(){
 		},
 
 		/* 保存记录 */
-		insert: function(data){
+		insert: function(data,callback){
 			var _bean = data;
 			if (typeof(_bean) == "undefined") {
 				_bean = this.properties;
@@ -125,6 +125,9 @@ function JW_Model(){
 				function(transaction_object){
 					transaction_object.executeSql(sqlstmt,[],function(tx,rs){
 						js_model._lastInsertId = rs.insertId;
+						if (typeof(callback)=='function') {
+							callback(rs);
+						};
 					});
 				},
 				function(err){
@@ -138,7 +141,7 @@ function JW_Model(){
 		},
 
 		/* 更新记录,key 是条件, data 是要更新的数据 */
-		update: function(key,data){
+		update: function(key,data,callback){
 			var sqlstmt = "UPDATE " + this.tableName+" SET ";
 			$.each(Object.keys(data), function(index, val) {
 				 /* iterate through array or object */
@@ -148,7 +151,9 @@ function JW_Model(){
 			this._database.transaction(
 				function(transaction_object){
 					transaction_object.executeSql(sqlstmt,[],function(tx,rs){
-						console.log(rs);
+						if (typeof(callback)=='function') {
+							callback(rs);
+						};
 					});
 				},
 				function(err){
